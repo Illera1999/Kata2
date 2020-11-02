@@ -6,16 +6,18 @@ en ese array.
 */
 
 package kata2;
+
+import java.util.Map;
+
 public class kata2 {
     public static void main(String[] args) {
         int [] data = {1,2,3,1,2,1,2,3,1,2,3,2,2,1,2};
-        histograma res = new histograma ();
-           
-        for (int key : data) {
-            res.put(key,res.contiene(key)?res.get(key)+1:1);
-        }
+        histograma histo = new histograma (data);
         
-        System.out.println(res);
+        Map <Integer,Integer> histogr = histo.getHistogram();
+        
+        for (int key : histogr.keySet()) {
+            System.out.println(key + "==>" + histogr.get(key));
+        }
     }
-    
 }
