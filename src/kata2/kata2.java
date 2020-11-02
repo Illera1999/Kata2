@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class kata2 {
     public static void main(String[] args) {
-        int [] data = {1,2,3,1,2,1,2,3,1,2,3,2,2,1,2};
+        Integer [] data = {1,2,3,1,2,1,2,3,1,2,3,2,2,1,2};
         histograma histo = new histograma (data);
         
         Map <Integer,Integer> histogr = histo.getHistogram();

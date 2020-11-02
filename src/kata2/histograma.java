@@ -3,31 +3,23 @@ package kata2;
 import java.util.HashMap;
 import java.util.Map;
 
-public class histograma {
+public class histograma<T> {
     
-    private Map<Integer,Integer> mapa;
+    private final T[] data;
 
-    public histograma() {
-        mapa = new HashMap<>();
-    }
-    
-    public boolean contiene(int key){
-        return mapa.containsKey(key);
-    }
-    
-    public void put (int key, int value){
-        mapa.put(key, value);
-    }
-    
-    public int get(int key){
-        return mapa.get(key);
-    }
-    
-    @Override
-    public String toString(){
-        String res = "";
-        res = mapa.keySet().stream().map(e -> e + "==>" + get(e) + "\n").reduce(res, String::concat);
-        return res;
+    public histograma(T[] data) {
+        this.data=data;
     }
 
+    public T[] getData() {
+        return data;
+    }
+    
+    public Map<T,Integer> getHistogram(){
+        Map <T,Integer> histograma = new HashMap<>();
+        for (T key : data) {
+            histograma.put(key,histograma.containsKey(key)?histograma.get(key)+1:1);
+        }
+        return histograma;
+    }
 }
