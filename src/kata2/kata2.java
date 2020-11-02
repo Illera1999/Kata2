@@ -14,7 +14,7 @@ public class kata2 {
         for (int i = 0; i < data.length; i++) {
            int j = data[i];
            if (res.contiene(data[i])){
-               res.put(data[i], res.get(data[i]+1));
+               res.put(data[i], res.get(data[i])+1);
            }else {
                res.put(data[i],1);
            }

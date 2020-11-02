@@ -11,8 +11,8 @@ public class histograma {
         mapa = new HashMap<>();
     }
     
-    public boolean contiene(int num){
-        return mapa.containsKey(num);
+    public boolean contiene(int key){
+        return mapa.containsKey(key);
     }
     
     public void put (int key, int value){
@@ -26,9 +26,7 @@ public class histograma {
     @Override
     public String toString(){
         String res = "";
-        for (int e : mapa.keySet()){
-            res += e + "==>" + get(e) + "\n";
-        }
+        res = mapa.keySet().stream().map(e -> e + "==>" + get(e) + "\n").reduce(res, String::concat);
         return res;
     }
 
